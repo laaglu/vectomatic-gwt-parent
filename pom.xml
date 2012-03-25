@@ -19,33 +19,40 @@
 	</properties>
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>com.google.gwt</groupId>
-				<artifactId>gwt-user</artifactId>
-				<version>2.4.0</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.google.gwt</groupId>
-				<artifactId>gwt-dev</artifactId>
-				<version>2.4.0</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>javax.validation</groupId>
-				<artifactId>validation-api</artifactId>
-				<version>1.0.0.GA</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.validation</groupId>
-				<artifactId>validation-api</artifactId>
-				<classifier>sources</classifier>
-				<version>1.0.0.GA</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-dev</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<classifier>sources</classifier>
+		</dependency>
+	</dependencies>
 	<build>
       <plugins>
+			<!-- Produce a skinny war as only the GWT-generated files are of interest -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<packagingExcludes>WEB-INF/lib/*.jar,WEB-INF/classes/**</packagingExcludes>
+				</configuration>
+			</plugin>
+			
 			<!-- Configure the GWT-Maven plugin -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -71,15 +78,28 @@
 						</goals>
 					</execution>
 					<execution>
-						<id>gwt-tests</id>
+						<id>gwt unit tests</id>
 						<configuration>
-							<includes>**/*GWTTestSuite.java</includes>
-						</configuration>
+							<includes>**/*GwtTestSuite.java</includes>
+							<mode>selenium</mode>
+							<testTimeOut>240</testTimeOut>
+      						<selenium>localhost:4444/*firefox"</selenium>
+      					</configuration>
 						<goals>
 							<goal>test</goal>
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*GwtTest.java</exclude>
+						<exclude>**/*GwtTestSuite.java</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
    		</plugins>
    	</build>
