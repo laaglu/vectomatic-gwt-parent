@@ -16,6 +16,7 @@
  		<!-- Properties for maven-gwt-plugin -->
  		<gwt.style>OBF</gwt.style>
  		<gwt.logLevel>WARN</gwt.logLevel>
+		<gwt.localWorkers>2</gwt.localWorkers>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -69,6 +70,7 @@
 							</modules>
 							<style>${gwt.style}</style>
 							<logLevel>${gwt.logLevel}</logLevel>
+							<localWorkers>${gwt.localWorkers}</localWorkers>
 							<extraJvmArgs>-Xmx512m</extraJvmArgs>
 							<gen>${project.build.directory}/gen</gen>
 							<extra>${project.build.directory}/aux</extra>
