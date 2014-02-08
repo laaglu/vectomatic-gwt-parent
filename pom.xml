@@ -57,6 +57,7 @@
 				<configuration>
 					<packagingExcludes>WEB-INF/lib/*.jar,WEB-INF/classes/**</packagingExcludes>
 				</configuration>
+                <version>2.4</version>
 			</plugin>
 			
 			<!-- Configure the GWT-Maven plugin -->
