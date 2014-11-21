@@ -6,7 +6,7 @@
 		<version>0.5</version>
 	</parent>
 	<artifactId>vectomatic-gwt-parent</artifactId>
-	<version>0.5-SNAPSHOT</version>
+	<version>0.5</version>
 	<packaging>pom</packaging>
 
 	<name>Vectomatic parent pom for GWT projects</name>
@@ -15,7 +15,8 @@
 		<url>scm:git:git@github.com:laaglu/vectomatic-gwt-parent.git</url>
 		<connection>scm:git:git@github.com:laaglu/vectomatic-gwt-parent.git</connection>
 		<developerConnection>scm:git:git@github.com:laaglu/vectomatic-gwt-parent.git</developerConnection>
-	</scm>
+	  <tag>0.5</tag>
+  </scm>
 	
 	<properties>
  		<!-- Properties for maven-gwt-plugin -->
