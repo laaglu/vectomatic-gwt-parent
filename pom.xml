@@ -93,7 +93,7 @@
 							<includes>**/*GwtTestSuite.java</includes>
 							<mode>selenium</mode>
 							<testTimeOut>240</testTimeOut>
-      						<selenium>localhost:4444/*firefox"</selenium>
+      						<selenium>localhost:4444/*firefox</selenium>
       					</configuration>
 						<goals>
 							<goal>test</goal>
