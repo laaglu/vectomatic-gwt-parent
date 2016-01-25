@@ -12,9 +12,9 @@
 	<name>Vectomatic parent pom for GWT projects</name>
 	<description>Groups maven configuration elements common to all Vectomatic GWT projects</description>
 	<scm>
-		<url>scm:git:git@github.com:laaglu/vectomatic-gwt-parent.git</url>
-		<connection>scm:git:git@github.com:laaglu/vectomatic-gwt-parent.git</connection>
-		<developerConnection>scm:git:git@github.com:laaglu/vectomatic-gwt-parent.git</developerConnection>
+		<url>scm:git:git://git/vectomatic-gwt-parent.git</url>
+		<connection>scm:git:git://git/vectomatic-gwt-parent.git</connection>
+		<developerConnection>scm:git:git://git/vectomatic-gwt-parent.git</developerConnection>
 	  <tag>HEAD</tag>
   </scm>
 	
